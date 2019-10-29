@@ -29,6 +29,8 @@
 	try {
 		Class.forName("org.sqlite.JDBC");
 		con = DriverManager.getConnection("jdbc:sqlite:C:/Users/tmpl/test.db");
+		// 웹에서는
+		// con = DriverManager.getConnection("jdbc:sqlite:test.db");
 		String sql = "select * from content_list";
 		String sql2 = "select * from content_list where CONTENT_ID='"+cid+"' and CONTENT_DATE='"+cdate+"' and CONTENT_TEACHER='"+cteacher+"'";
 		stmt = con.prepareStatement(sql);
