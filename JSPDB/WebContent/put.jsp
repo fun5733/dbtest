@@ -19,6 +19,8 @@
 	try {
 		Class.forName("org.sqlite.JDBC");
 		con = DriverManager.getConnection("jdbc:sqlite:C:/Users/tmpl/test.db");
+		// 웹에서는
+		// con = DriverManager.getConnection("jdbc:sqlite:test.db");
 		String sql = "insert into '"+content_id+"' values(?,?)";
 		stmt = con.prepareStatement(sql);
 		stmt.setString(1, id);
