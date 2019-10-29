@@ -7,7 +7,7 @@
 <title>put page</title>
 </head>
 <body>
-<p >±³À° ¹øÈ£ : <%= request.getParameter("content_id") %></p>
+<p >êµìœ¡ ë²ˆí˜¸ : <%= request.getParameter("content_id") %></p>
 <%@ page import = "java.sql.*" %>
 <%
 	String content_id = request.getParameter("content_id");
@@ -18,19 +18,19 @@
 	PreparedStatement stmt = null;
 	try {
 		Class.forName("org.sqlite.JDBC");
-		con = DriverManager.getConnection("jdbc:sqlite:C:/Users/tmpl/test.db");
-		// À¥¿¡¼­´Â
-		// con = DriverManager.getConnection("jdbc:sqlite:test.db");
+		//con = DriverManager.getConnection("jdbc:sqlite:C:/Users/tmpl/test.db");
+		// ì›¹ì—ì„œëŠ”
+		con = DriverManager.getConnection("jdbc:sqlite:test.db");
 		String sql = "insert into '"+content_id+"' values(?,?)";
 		stmt = con.prepareStatement(sql);
 		stmt.setString(1, id);
 		stmt.setString(2, name);
 		stmt.executeUpdate();
-		out.println("" + content_id + "Å×ÀÌºí¿¡ »õ·Î¿î ·¹ÄÚµå Ãß°¡ ¿Ï·á");
+		out.println("" + content_id + "í…Œì´ë¸”ì— ìƒˆë¡œìš´ ë ˆì½”ë“œ ì¶”ê°€ ì™„ë£Œ");
 	}
 	catch(Exception e) {
 		e.printStackTrace();
-		System.out.println("½ÇÆĞ");
+		System.out.println("ì‹¤íŒ¨");
 	}
 	finally {
 		if(stmt != null) try{stmt.close();} catch(SQLException sqle){}
